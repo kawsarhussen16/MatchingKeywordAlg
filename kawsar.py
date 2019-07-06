@@ -1,5 +1,7 @@
 # KMP Algorithm 
-def KMPSearch(keyword, url): 
+import time
+
+def KMPurlMatch(keyword, url): 
     Key = len(keyword) 
     Url = len(url) 
   
@@ -9,7 +11,7 @@ def KMPSearch(keyword, url):
     j = 0 # index for keyword[] 
   
     # Preprocess the keyword (calculate lps[] array) 
-    computeLPSArray(keyword, Key, lps) 
+    calculateLPSArray(keyword, Key, lps) 
   
     i = 0 # index for url[] 
     while i < Url: 
@@ -18,7 +20,7 @@ def KMPSearch(keyword, url):
             j += 1
   
         if j == Key: 
-            print("Found keyword at index " + str(i-j))
+            print("Keyword found at index " + str(i-j))
             j = lps[j-1] 
   
         # mismatch after j matches 
@@ -30,7 +32,7 @@ def KMPSearch(keyword, url):
             else: 
                 i += 1
   
-def computeLPSArray(keyword, Key, lps): 
+def calculateLPSArray(keyword, Key, lps): 
     len = 0 # length of the previous longest prefix suffix 
   
     lps[0] # lps[0] is always 0 
@@ -46,7 +48,7 @@ def computeLPSArray(keyword, Key, lps):
             if len != 0: 
                 len = lps[len-1] 
   
-                # Also, note that we do not increment i here 
+                # do not increment i here 
             else: 
                 lps[i] = 0
                 i += 1
@@ -54,4 +56,4 @@ def computeLPSArray(keyword, Key, lps):
 
 url = "targetthisstringtargett"
 keyword = "target"
-KMPSearch(keyword, url)
+KMPurlMatch(keyword, url)
