@@ -1,6 +1,6 @@
 # KMP Algorithm 
 import time
-
+start_time = time.time()
 def KMPurlMatch(keyword, url): 
     Key = len(keyword) 
     Url = len(url) 
@@ -57,3 +57,5 @@ def calculateLPSArray(keyword, Key, lps):
 url = "targetthisstringtargett"
 keyword = "target"
 KMPurlMatch(keyword, url)
+end_time = time.time()
+print (f"runtime: {end_time - start_time} seconds")

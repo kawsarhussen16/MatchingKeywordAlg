@@ -1,5 +1,6 @@
 # Basic Naive Algorithm
-
+import time
+start_time = time.time()
 def BasicNaive(keyword, url): 
     M = len(keyword) 
     N = len(url) 
@@ -20,3 +21,5 @@ def BasicNaive(keyword, url):
 url = "targetthisstringtargett"
 keyword = "target"
 BasicNaive(keyword, url) 
+end_time = time.time()
+print (f"runtime: {end_time - start_time} seconds")
